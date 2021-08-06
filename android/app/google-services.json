@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "475084867014",
+    "project_id": "prizeapp-eda7c",
+    "storage_bucket": "prizeapp-eda7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475084867014:android:7777b77991b30eb2f55ec7",
+        "android_client_info": {
+          "package_name": "com.rimzor.prizeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475084867014-pq00vu10ms1qavufgat5qr3d2p9e7k75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOGftKleUD6YyDuTaaWfLYa9SOS-CQBlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475084867014-pq00vu10ms1qavufgat5qr3d2p9e7k75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
