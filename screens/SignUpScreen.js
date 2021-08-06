@@ -102,33 +102,38 @@ class SignUpScreen extends React.Component {
                                 value={this.state.password}
                                 onChangeText={password => this.setState({ password })}
                             />
-                            <DatePicker
-                                style={{ width: '86%', top: 20 }}
-                                date={this.state.dateOfBirth}
-                                mode="date"
-                                placeholder="Date-Of-Birth"
-                                format="YYYY-MM-DD"
-                                minDate="1900-05-01"
-                                maxDate="2005-06-01"
-                                confirmBtnText="Confirm"
-                                cancelBtnText="Cancel"
-                                customStyles={{
-                                    dateIcon: {
-                                        position: 'absolute',
-                                        left: 0,
-                                        top: 4,
-                                        marginLeft: 0,
+                            <Text style={styles.dobText}>Date-of-Birth
+                                <DatePicker
+                                    style={{ width: '50%', left: 120, top: 20, }}
+                                    date={this.state.dateOfBirth}
+                                    mode="date"
+                                    placeholder=" "
+                                    format="DD-MM-YYYY"
+                                    minDate="01-05-1900"
+                                    maxDate="01-06-2005"
+                                    confirmBtnText="Confirm"
+                                    cancelBtnText="Cancel"
+                                    customStyles={{
+                                        placeholder: {
+                                            color: "black"
+                                        },
+                                        dateIcon: {
+                                            position: 'absolute',
+                                            left: 85,
+                                            top: 4,
+                                            padding: 5,
+                                            width: 30,
 
-                                    },
-                                    dateInput: {
-                                        marginLeft: 36,
-                                        borderColor: 'black',
-
-                                    }
-                                    // ... You can check the source to find the other keys.
-                                }}
-                                onDateChange={(dateOfBirth) => { this.setState({ dateOfBirth: dateOfBirth }) }}
-                            />
+                                        },
+                                        dateInput: {
+                                            width: 90,
+                                            marginLeft: 120,
+                                            borderBottomColor: 'skyblue',
+                                            borderTopColor: 'skyblue',
+                                        }
+                                    }}
+                                    onDateChange={(dateOfBirth) => { this.setState({ dateOfBirth: dateOfBirth }) }}
+                                /></Text>
                         </View>
                         {this.renderLoading()}
                         <Text
@@ -180,10 +185,15 @@ const styles = StyleSheet.create({
     },
     input: {
         fontSize: 20,
-        borderColor: '#707070',
         borderBottomWidth: 1,
         paddingBottom: 1.5,
         marginTop: 25.5
+    },
+    dobText: {
+        fontSize: 20,
+        borderBottomWidth: 1,
+        paddingBottom: 1.5,
+        marginTop: 10
     },
     button: {
         alignItems: "center",
@@ -195,16 +205,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width: '86%',
     },
-    googleButton: {
-        backgroundColor: '#FFFFFF',
-        height: 44,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 22,
-        borderWidth: 1,
-        borderColor: '#707070'
-    },
+
     pageTitle: {
         fontSize: 32,
         fontWeight: '700',
@@ -212,6 +213,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 50,
 
-    }
+    },
+
 });
 export default SignUpScreen;

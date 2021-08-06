@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
+import PickAvatar from '../components/Avatar.js';
 
 class HomeScreen extends React.Component {
     state = { user: {} };
@@ -25,6 +26,7 @@ class HomeScreen extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
+
             </SafeAreaView>
         );
     }

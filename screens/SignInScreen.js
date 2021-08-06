@@ -57,7 +57,7 @@ class SignInScreen extends React.Component {
             >
                 <SafeAreaView style={{ flex: 1 }}>
                     <KeyboardAvoidingView style={styles.container} behavior="padding">
-                        <Text style={{ top: 50, fontSize: 32, fontWeight: "700", color: "gray" }}>
+                        <Text style={styles.pageTitle}>
                             LOG IN!
                         </Text>
                         <View style={styles.form}>
@@ -144,6 +144,14 @@ const styles = StyleSheet.create({
         height: 40,
         borderRadius: 10,
         width: '86%',
+    },
+    pageTitle: {
+        fontSize: 32,
+        fontWeight: '700',
+        color: 'black',
+        position: 'absolute',
+        top: 50,
+
     },
 });
 export default SignInScreen;
