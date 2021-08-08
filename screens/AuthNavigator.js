@@ -5,8 +5,9 @@ import SignInScreen from './SignInScreen.js';
 const AuthNavigator = createSwitchNavigator(
     {
         Loading: { screen: LoadingScreen },
+        SignIn: { screen: SignInScreen },
         SignUp: { screen: SignUpScreen },
-        SignIn: { screen: SignInScreen }
+
     },
     { initialRouteName: 'Loading' }
 );

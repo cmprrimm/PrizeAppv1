@@ -14,7 +14,7 @@ class HomeScreen extends React.Component {
     }
     render() {
         return (
-            <SafeAreaView style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: 'lightblue' }}>
                 <View style={styles.container}>
                     <Text style={styles.userGreeting}>Hi!, {this.state.user.email}</Text>
                     <View style={styles.buttonContainer}>
@@ -22,7 +22,7 @@ class HomeScreen extends React.Component {
                             onPress={() => {
                                 firebase.auth().signOut();
                             }} >
-                            <Text style={{ color: 'white' }}>Sign Out</Text>
+                            <Text style={{ color: 'black', fontWeight: 'bold' }}>Sign Out</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -33,10 +33,15 @@ class HomeScreen extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'skyblue'
+        backgroundColor: 'white',
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        width: '100%',
+        position: 'absolute',
+        bottom: 0,
+        height: '85%'
     },
     buttonContainer: {
         width: '86%',
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
     },
     button: {
         alignItems: "center",
-        backgroundColor: "black",
+        backgroundColor: 'lightblue',
         padding: 10,
         borderRadius: 10,
         width: '86%',
