@@ -1,22 +1,40 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
-import PickAvatar from '../components/Avatar.js';
+
+
 
 class HomeScreen extends React.Component {
-    state = { user: {} };
+
+    state = {
+        user: [],
+        userData: [],
+
+    };
+
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user) => {
-            if (user != null) {
-                this.setState({ user: user });
-            }
-        })
+            firebase.database().ref('users/' + user.uid).on('value', (snapshot) => {
+                if (user != null) {
+                    const user = snapshot.val();
+                    this.setState({
+                        user, userData: user
+                    });
+                }
+            });
+
+        });
+
     }
+
+
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'lightblue' }}>
                 <View style={styles.container}>
-                    <Text style={styles.userGreeting}>Hi!, {this.state.user.email}</Text>
+                    <Text style={styles.userGreeting}>Hi, {this.state.user.displayName}</Text>
+                    <Text style={styles.userEmail} >{this.state.user.email}</Text>
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity style={styles.button}
                             onPress={() => {
@@ -58,9 +76,15 @@ const styles = StyleSheet.create({
     },
     userGreeting: {
         position: 'absolute',
-        top: 100,
-        fontSize: 20,
+        top: 10,
+        fontSize: 30,
         fontWeight: 'bold',
+    },
+    userEmail: {
+        position: 'absolute',
+        top: 60,
+        fontSize: 15,
+        color: 'gray',
     }
 
 });

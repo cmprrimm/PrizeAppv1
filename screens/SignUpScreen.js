@@ -46,13 +46,16 @@ class SignUpScreen extends React.Component {
                 });
             })
             .catch(error => {
-                switch (error.code) {
-                    case 'auth/invalid-email': {
-                        alert('Please fill out all details correctly!')
-                        break;
-                    }
+                if (error.code === 'auth/invalid-email') {
+
+                    alert('Please fill out all details correctly!')
+
                 }
-            });
+                else if ('auth/invalid-password') {
+                    alert('Password needs to be 6 or more characters!')
+                }
+            }
+            );
     }
 
     render() {
@@ -96,6 +99,7 @@ class SignUpScreen extends React.Component {
                                     textContentType="newPassword"
                                     secureTextEntry={true}
                                     value={this.state.password}
+                                    minLength={6}
                                     onChangeText={password => this.setState({ password })}
                                 />
                                 <Text style={styles.dobText}>Date - of - Birth

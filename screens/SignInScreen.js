@@ -11,7 +11,6 @@ import {
     TouchableWithoutFeedback,
     Keyboard
 } from "react-native";
-import "firebase/firestore";
 import firebase from "firebase";
 
 class SignInScreen extends React.Component {
