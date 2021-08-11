@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Button, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
-import UserIcon from '../components/UserIcon';
-import SettingsIcon from '../components/SettingsIcon';
+
 
 
 
@@ -32,13 +31,19 @@ class HomeScreen extends React.Component {
 
 
     render() {
-
         return (
             <SafeAreaView style={{ flex: 1, backgroundColor: 'lightblue' }}>
-                <SettingsIcon navigation={this.props.navigation} />
-                <UserIcon navigation={this.props.navigation} />
                 <View style={styles.container}>
-                    <Text style={styles.userGreeting}>Hi, {this.state.user.displayName}</Text>
+                    <Text style={styles.userGreeting}>Hi, { }</Text>
+                    <Text style={styles.userEmail} >{this.state.user.email}</Text>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.button}
+                            onPress={() => {
+                                firebase.auth().signOut();
+                            }} >
+                            <Text style={{ color: 'black', fontWeight: 'bold' }}>Sign Out</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
             </SafeAreaView>
